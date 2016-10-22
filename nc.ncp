@@ -1,0 +1,263 @@
+<Project>
+  <Name>nc</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>1</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Route</Name>
+        <Access>Public</Access>
+        <Location left="853" top="299" />
+        <Size width="260" height="485" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Station A</Member>
+        <Member type="Field">private Station B</Member>
+        <Member type="Field">private int typeRoad</Member>
+        <Member type="Field">private int id</Member>
+        <Member type="Field">private List&lt;Transport&gt; transport</Member>
+        <Member type="Constructor">public Route()</Member>
+        <Member type="Constructor">public Route(ArrStations arr)</Member>
+        <Member type="Method">public Station getA()</Member>
+        <Member type="Method">public Station getB()</Member>
+        <Member type="Method">public int getTypeRoad()</Member>
+        <Member type="Method">public List&lt;Transport&gt; getTransport()</Member>
+        <Member type="Method">public int getId()</Member>
+        <Member type="Method">public void addTransport()</Member>
+        <Member type="Method">public override boolean equals(Object obj)</Member>
+        <Member type="Method">public override int hashCode()</Member>
+        <Member type="Method">private void initComp(ArrStations arrStations)</Member>
+        <Member type="Method">public void setA(Station A)</Member>
+        <Member type="Method">public void setB(Station B)</Member>
+        <Member type="Method">public void setId(int id)</Member>
+        <Member type="Method">public void setTransport(List&lt;Transport&gt; transport)</Member>
+        <Member type="Method">private void setTypeRoad()</Member>
+        <Member type="Method">public void setTypeRoad(int typeRoad)</Member>
+        <Member type="Method">public override String toString()</Member>
+        <Member type="Method">public String writeTransportTimetable()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Transport</Name>
+        <Access>Public</Access>
+        <Location left="1310" top="330" />
+        <Size width="230" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int id</Member>
+        <Member type="Field">privateTimetable timetable</Member>
+        <Member type="Field">private int number</Member>
+        <Member type="Constructor">public Transport()</Member>
+        <Member type="Method">public int getId()</Member>
+        <Member type="Method">public void setId(int id)</Member>
+        <Member type="Method">public Timetable getTimetable()</Member>
+        <Member type="Method">public void setTimetable(Timetable timetable)</Member>
+        <Member type="Method">public int getNumber()</Member>
+        <Member type="Method">public void setNumber(int number)</Member>
+        <Member type="Method">public int hashCode()</Member>
+        <Member type="Method">public boolean equals(Object obj)</Member>
+        <Member type="Method">public String writeTimetable()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Bus</Name>
+        <Access>Public</Access>
+        <Location left="1085" top="52" />
+        <Size width="163" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static int amount</Member>
+        <Member type="Constructor">public Bus()</Member>
+        <Member type="Method">public static int getAmount()</Member>
+        <Member type="Method">public String toString()</Member>
+        <Member type="Method">public String writeTimetable()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Timetable</Name>
+        <Access>Public</Access>
+        <Location left="1729" top="330" />
+        <Size width="235" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Weekdays weekdays</Member>
+        <Member type="Field">private DayPart daypart</Member>
+        <Member type="Field">private int[][] interval</Member>
+        <Member type="Constructor">public Timetable()</Member>
+        <Member type="Method">public Sting toString()</Member>
+        <Member type="Method">public String toString(Weekdays weekdays)</Member>
+        <Member type="Method">public Weekdays getWeekdays()</Member>
+        <Member type="Method">public DayPart getDayPart()</Member>
+        <Member type="Method">public int[][] getInterval()</Member>
+        <Member type="Method">public int getInterval()</Member>
+        <Member type="Method">public void setDayPart(DayPart dayPart)</Member>
+        <Member type="Method">public void setWeekdays(Weekdays weekdays)</Member>
+        <Member type="Method">public void setInterval(int[][] interval)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>DayPart</Name>
+        <Access>Public</Access>
+        <Location left="1532" top="752" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>MORNING</Value>
+        <Value>AFTERNOON</Value>
+        <Value>EVENING</Value>
+        <Value>LATEEVENING</Value>
+        <Value>NIGHT</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>Weekdays</Name>
+        <Access>Public</Access>
+        <Location left="1729" top="752" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>MONDAY</Value>
+        <Value>TUESDAY</Value>
+        <Value>WEDNESDAY</Value>
+        <Value>THURSDAY</Value>
+        <Value>FRIDAY</Value>
+        <Value>SATURDAY</Value>
+        <Value>SUNDAY</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>Station</Name>
+        <Access>Public</Access>
+        <Location left="446" top="35" />
+        <Size width="241" height="332" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int id</Member>
+        <Member type="Field">private String name</Member>
+        <Member type="Field">private int typeRoad</Member>
+        <Member type="Constructor">public Station()</Member>
+        <Member type="Constructor">public Station(int id, String name)</Member>
+        <Member type="Constructor">public Station(int id, String name, int typeRoad)</Member>
+        <Member type="Method">public boolean equals(Object obj)</Member>
+        <Member type="Method">public int getId()</Member>
+        <Member type="Method">public String getName()</Member>
+        <Member type="Method">public int getTypeRoad()</Member>
+        <Member type="Method">public int hashCode()</Member>
+        <Member type="Method">public void setId(int id)</Member>
+        <Member type="Method">public void setName(String name)</Member>
+        <Member type="Method">public void setTypeRoad(int typeRoad)</Member>
+        <Member type="Method">public String toString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ArrStations</Name>
+        <Access>Public</Access>
+        <Location left="715" top="35" />
+        <Size width="232" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private List&lt;Station&gt; stations</Member>
+        <Member type="Constructor">public ArrStations()</Member>
+        <Member type="Method">private Object deser()</Member>
+        <Member type="Method">public List&lt;Station&gt; getStations()</Member>
+        <Member type="Method">public void ser()</Member>
+        <Member type="Method">public void setStations(List&lt;Station&gt; stations)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Trolleybus</Name>
+        <Access>Public</Access>
+        <Location left="1344" top="52" />
+        <Size width="163" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static int amount</Member>
+        <Member type="Constructor">public Trolleybus()</Member>
+        <Member type="Method">public static int getAmount()</Member>
+        <Member type="Method">public String toString()</Member>
+        <Member type="Method">public String writeTimetable()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Tram</Name>
+        <Access>Public</Access>
+        <Location left="1601" top="52" />
+        <Size width="163" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static int amount</Member>
+        <Member type="Constructor">public Tram()</Member>
+        <Member type="Method">public static int getAmount()</Member>
+        <Member type="Method">public String toString()</Member>
+        <Member type="Method">public String writeTimetable()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="2" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1338</X>
+          <Y>304</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="8" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="9" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1508</X>
+          <Y>304</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="6" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1865</X>
+          <Y>727</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>562</X>
+          <Y>480</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
