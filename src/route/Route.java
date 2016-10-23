@@ -284,7 +284,24 @@ public class Route {
     }
 
     public void remuveTransport() {
-        
+        writeTransport();
+        System.out.println("Write ID: ");
+        try {
+            int id = new Scanner(System.in).nextInt();
+            boolean isFound = false;
+            for (int i = 0; i < transport.size(); i++) {
+                if (transport.get(i).getId() == id) {
+                    transport.remove(i);
+                    isFound = true;
+                    break;
+                }
+            }
+            if (!isFound) {
+                System.out.println("Id not found");
+            }
+        } catch (InputMismatchException ime) {
+            System.out.println("Not integer");
+        }
     }
 
 }
