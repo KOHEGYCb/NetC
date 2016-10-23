@@ -6,14 +6,20 @@ import timetable.Timetable;
  *
  * @author Dmitry
  */
-public abstract class Transport {
-
+public abstract class Transport{
+    
+    private static int amount = 0;
     private int id;
     private Timetable timetable; 
     private int number;
+    private int type;
 
-    public Transport() {
+    public Transport(int number) {
         timetable = new Timetable();
+        this.number = number;
+        type = -1;
+        id = amount;
+        amount++;
     }
 
     /**
@@ -94,5 +100,19 @@ public abstract class Transport {
      */
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    /**
+     * @return the type
+     */
+    public int getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(int type) {
+        this.type = type;
     }
 }

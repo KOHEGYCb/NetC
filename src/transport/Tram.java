@@ -16,7 +16,8 @@ public class Tram extends Transport{
     }
     
     public Tram(){
-        super();
+        super(amount);
+        setType(2);
         amount++;
     }
     

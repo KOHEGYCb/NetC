@@ -60,7 +60,7 @@ public class Station implements Serializable{
 
     @Override
     public String toString() {
-        return "Station\n  id: " + id + "\n  name: " + name + "\n  type road: " + typeRoad + "\n";
+        return "Station {\n  id: " + id + "\n  name: " + name + "\n  type road: " + typeRoad + "\n}\n";
     }
 
     /**

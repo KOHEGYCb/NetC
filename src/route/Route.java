@@ -1,7 +1,10 @@
 package route;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -33,6 +36,11 @@ public class Route {
         initComp(arr);
     }
 
+    public Route(ArrStations arr, int id) {
+        initComp(arr);
+        this.id = id++;
+    }
+
     private void initComp(ArrStations arrStations) {
         int st1 = new Random().nextInt(arrStations.getStations().size());
         int st2;
@@ -43,7 +51,6 @@ public class Route {
         this.A = arrStations.getStations().get(st1);
         this.B = arrStations.getStations().get(st2);
         setTypeRoad();
-        id = Integer.parseInt("" + A.getId() + B.getId());
 //        setTransport(typeRoad);
     }
 
@@ -61,7 +68,11 @@ public class Route {
      */
     @Override
     public String toString() {
-        String str = "Route{\n" + getA().toString() + getB().toString();
+        return "Route Id: " + id;
+    }
+
+    public String routeInfo() {
+        String str = "Route ID: " + id + " {\n" + getA().toString() + getB().toString();
 //        for (int i = 0; i < this.transport.length; i++) {
 //            str = str + this.transport[i].toString() + "\n";
 //        }
@@ -168,70 +179,76 @@ public class Route {
         this.id = id;
     }
 
-//    /**
-//     * @return the transport
-//     */
-//    public Transport[] getTransport() {
-//        return transport;
-//    }
-
-    public void addTransport() {
+    public void addTransport(List<Route> routes) {
+        Transport newTransport = null;
         System.out.println("*****");
+        int type;
         switch (typeRoad) {
             case 0:
-                /*add bus*/
                 System.out.println("1) Add Bus");
+                newTransport = new Bus();
                 break;
             case 1:
-                /*add bus trolleybus*/
                 System.out.println(
-                          "1) Add Bus\n"
+                        "1) Add Bus\n"
                         + "2) Add Trolleybus");
+                try {
+                    type = new Scanner(System.in).nextInt();
+                    if (type == 1) {
+                        newTransport = new Bus();
+                    }
+                    if (type == 2) {
+                        newTransport = new Trolleybus();
+                    }
+                } catch (InputMismatchException ime) {
+                    System.out.println("Not integer");
+                }
                 break;
             case 2:
-                /*add bus tram*/
                 System.out.println(
-                          "1) Add Bus\n"
+                        "1) Add Bus\n"
                         + "2) Add Trum");
+                try {
+                    type = new Scanner(System.in).nextInt();
+                    if (type == 1) {
+                        newTransport = new Bus();
+                    }
+                    if (type == 2) {
+                        newTransport = new Tram();
+                    }
+                } catch (InputMismatchException ime) {
+                    System.out.println("Not integer");
+                }
                 break;
             case 3:
-                /*add all*/
                 System.out.println(
-                          "1) Add Bus\n"
+                        "1) Add Bus\n"
                         + "2) Add Trolleybus\n"
                         + "3) Add Trum");
+                try {
+                    type = new Scanner(System.in).nextInt();
+                    if (type == 1) {
+                        newTransport = new Bus();
+                    }
+                    if (type == 2) {
+                        newTransport = new Trolleybus();
+                    }
+                    if (type == 3) {
+                        newTransport = new Tram();
+                    }
+                } catch (InputMismatchException ime) {
+                    System.out.println("Not integer");
+                }
                 break;
         }
         System.out.println("*****");
-        
-        int n = new Scanner(System.in).nextInt();
-        int number;
-        switch(n){
-            case 1:
-                System.out.print("Set number: ");
-                number = new Scanner(System.in).nextInt();
-                getTransport().add(new Bus());
-                break;
-            case 2:
-                System.out.print("Set number: ");
-                number = new Scanner(System.in).nextInt();
-                getTransport().add(new Trolleybus());
-                break;
-            case 3:
-                System.out.print("Set number: ");
-                number = new Scanner(System.in).nextInt();
-                getTransport().add(new Tram());
-                break;
+        if (newTransport == null) {
+            System.out.println("Transport not Add");
+            return;
         }
-        
+        getTransport().add(newTransport);
+        System.out.println("Transport Add");
     }
-
-//    /**
-//     * @param transport the transport to set
-//     */
-//    public void setTransport(Transport[] transport) {
-//        this.transport = transport;
-//    }
 
     public String writeTransportTimetable() {
         String str = "";
@@ -253,6 +270,21 @@ public class Route {
      */
     public void setTransport(List<Transport> transports) {
         this.transport = transports;
+    }
+
+    public void writeTransport() {
+        if (transport.isEmpty()) {
+            System.out.println("No Transport");
+            return;
+        }
+        ListIterator<Transport> listIterator = transport.listIterator();
+        while (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
+    }
+
+    public void remuveTransport() {
+        
     }
 
 }

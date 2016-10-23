@@ -9,7 +9,8 @@ public class Trolleybus extends Transport{
     private static int amount;
 
     public Trolleybus(){
-        super();
+        super(amount);
+        setType(1);
         amount++;
     }
     

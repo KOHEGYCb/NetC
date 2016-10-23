@@ -9,8 +9,8 @@ public class Bus extends Transport{
     private static int amount = 0;
 
     public Bus(){
-        super();
-        
+        super(amount);
+        setType(0);
         amount++;
     }
     
@@ -27,7 +27,7 @@ public class Bus extends Transport{
      */
     @Override
     public String toString() {
-        return "Bus{ ID: " + this.getId() + "}";
+        return "Bus{ ID: " + this.getId() + " Number: " + getNumber() +"}";
     }
 
     @Override

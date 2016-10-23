@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 /**
@@ -85,9 +86,9 @@ public class ArrStations implements Serializable {
     @Override
     public String toString() {
         String str = "";
-        for (int i = 0; i < stations.size(); i++) {
-            str = str + stations.get(i);
-        }
+        ListIterator<Station> listIterator = stations.listIterator();
+        while(listIterator.hasNext())
+            str = str + listIterator.next();
         return str;
     }
 
