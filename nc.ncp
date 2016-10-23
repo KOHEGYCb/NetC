@@ -7,8 +7,8 @@
       <Entity type="Class">
         <Name>Route</Name>
         <Access>Public</Access>
-        <Location left="853" top="299" />
-        <Size width="260" height="485" />
+        <Location left="842" top="299" />
+        <Size width="260" height="553" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Station A</Member>
         <Member type="Field">private Station B</Member>
@@ -17,15 +17,18 @@
         <Member type="Field">private List&lt;Transport&gt; transport</Member>
         <Member type="Constructor">public Route()</Member>
         <Member type="Constructor">public Route(ArrStations arr)</Member>
-        <Member type="Method">public Station getA()</Member>
-        <Member type="Method">public Station getB()</Member>
-        <Member type="Method">public int getTypeRoad()</Member>
-        <Member type="Method">public List&lt;Transport&gt; getTransport()</Member>
-        <Member type="Method">public int getId()</Member>
+        <Member type="Constructor">public Route(ArrStations arr, int id)</Member>
         <Member type="Method">public void addTransport()</Member>
         <Member type="Method">public override boolean equals(Object obj)</Member>
+        <Member type="Method">public Station getA()</Member>
+        <Member type="Method">public Station getB()</Member>
+        <Member type="Method">public int getId()</Member>
+        <Member type="Method">public List&lt;Transport&gt; getTransport()</Member>
+        <Member type="Method">public int getTypeRoad()</Member>
         <Member type="Method">public override int hashCode()</Member>
         <Member type="Method">private void initComp(ArrStations arrStations)</Member>
+        <Member type="Method">public void remuveTransport()</Member>
+        <Member type="Method">public String routeInfo()</Member>
         <Member type="Method">public void setA(Station A)</Member>
         <Member type="Method">public void setB(Station B)</Member>
         <Member type="Method">public void setId(int id)</Member>
@@ -33,27 +36,31 @@
         <Member type="Method">private void setTypeRoad()</Member>
         <Member type="Method">public void setTypeRoad(int typeRoad)</Member>
         <Member type="Method">public override String toString()</Member>
+        <Member type="Method">public void writeTransport()</Member>
         <Member type="Method">public String writeTransportTimetable()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Transport</Name>
         <Access>Public</Access>
-        <Location left="1310" top="330" />
-        <Size width="230" height="298" />
+        <Location left="1311" top="330" />
+        <Size width="230" height="349" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private static int amount</Member>
         <Member type="Field">private int id</Member>
-        <Member type="Field">privateTimetable timetable</Member>
         <Member type="Field">private int number</Member>
-        <Member type="Constructor">public Transport()</Member>
-        <Member type="Method">public int getId()</Member>
-        <Member type="Method">public void setId(int id)</Member>
-        <Member type="Method">public Timetable getTimetable()</Member>
-        <Member type="Method">public void setTimetable(Timetable timetable)</Member>
-        <Member type="Method">public int getNumber()</Member>
-        <Member type="Method">public void setNumber(int number)</Member>
-        <Member type="Method">public int hashCode()</Member>
+        <Member type="Field">privateTimetable timetable</Member>
+        <Member type="Field">private int type</Member>
+        <Member type="Constructor">public Transport(int number)</Member>
         <Member type="Method">public boolean equals(Object obj)</Member>
+        <Member type="Method">public int getId()</Member>
+        <Member type="Method">public int getNumber()</Member>
+        <Member type="Method">public Timetable getTimetable()</Member>
+        <Member type="Method">public int getType()</Member>
+        <Member type="Method">public int hashCode()</Member>
+        <Member type="Method">public void setId(int id)</Member>
+        <Member type="Method">public void setTimetable(Timetable timetable)</Member>
+        <Member type="Method">public void setType(int type)</Member>
         <Member type="Method">public String writeTimetable()</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
@@ -143,15 +150,19 @@
       <Entity type="Class">
         <Name>ArrStations</Name>
         <Access>Public</Access>
-        <Location left="715" top="35" />
-        <Size width="232" height="179" />
+        <Location left="58" top="58" />
+        <Size width="232" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private List&lt;Station&gt; stations</Member>
         <Member type="Constructor">public ArrStations()</Member>
+        <Member type="Method">public void addStation()</Member>
         <Member type="Method">private Object deser()</Member>
         <Member type="Method">public List&lt;Station&gt; getStations()</Member>
+        <Member type="Method">public void remuveStation()</Member>
+        <Member type="Method">public void renameStation()</Member>
         <Member type="Method">public void ser()</Member>
         <Member type="Method">public void setStations(List&lt;Station&gt; stations)</Member>
+        <Member type="Method">public String toString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -180,13 +191,35 @@
         <Member type="Method">public String writeTimetable()</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Class">
+        <Name>NetCracker</Name>
+        <Access>Public</Access>
+        <Location left="155" top="580" />
+        <Size width="162" height="315" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private ArrStations arrStations</Member>
+        <Member type="Field">private List&lt;Route&gt; routes</Member>
+        <Member type="Method">private int chooseRouteId()</Member>
+        <Member type="Method">private void loopMain()</Member>
+        <Member type="Method">private void loopRoute()</Member>
+        <Member type="Method">private void loopRouteWork(int id)</Member>
+        <Member type="Method">private void loopStation()</Member>
+        <Member type="Method">private void loopTransport()</Member>
+        <Member type="Method">public static void main(String[] args)</Member>
+        <Member type="Method">private void remuveRoute()</Member>
+        <Member type="Method">private void writeMenu()</Member>
+        <Member type="Method">private void writeWorkMenu()</Member>
+        <Member type="Method">private void writeStationMenu()</Member>
+        <Member type="Method">private void writeTransportMenu()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Generalization" first="2" second="1">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1338</X>
+          <X>1339</X>
           <Y>304</Y>
         </BendPoint>
       </Relationship>
@@ -198,29 +231,23 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1508</X>
+          <X>1509</X>
           <Y>304</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="6" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Aggregation</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -231,24 +258,18 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Aggregation</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -257,6 +278,22 @@
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="10" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>

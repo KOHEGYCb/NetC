@@ -131,7 +131,7 @@ public class NetCracker {
             }
             switch (k) {
                 case 1:
-                    routes.get(id).addTransport(routes);
+                    routes.get(id).addTransport();
                     break;
                 case 2:
                     routes.get(id).remuveTransport();
