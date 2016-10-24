@@ -1,5 +1,7 @@
 package timetable;
 
+import java.util.GregorianCalendar;
+
 /**
  *
  * @author Dmitry
@@ -28,7 +30,7 @@ public class Timetable {
                         this.interval[wd.getIndex() - 1][dp.getIndex() - 1] = 30;
                         break;
                     case NIGHT:
-                        this.interval[wd.getIndex() - 1][dp.getIndex() - 1] = -1;
+                        this.interval[wd.getIndex() - 1][dp.getIndex() - 1] = 60;
                         break;
                 }
                 if (wd == Weekdays.SUNDAY | wd == Weekdays.SATURDAY) {
@@ -48,9 +50,24 @@ public class Timetable {
     public String toString() {
         String str = "Timetable{\n";
         for (Weekdays wd : Weekdays.values()) {
-            str = str + " weekdays: " + wd + "\n";
+            str = str + " " + wd + "\n  ";
             for (DayPart dp : DayPart.values()) {
-                str = str + "  dayPart: " + dp + " intterval: " + this.getInterval(wd.getIndex() - 1, dp.getIndex() - 1) + "\n";
+                int hour = dp.getStart();
+                int minute = 0;
+                while(hour != dp.getStop()){
+                    if (minute >= 60){
+                        hour++;
+                        minute = minute - 60;
+                    }
+                    if (hour >= 24)
+                        hour = hour - 24;
+                    str = str + hour + ":" + minute + "  ";
+                    minute = minute + interval[wd.getIndex()-1][dp.getIndex()-1];
+                            
+                }
+                str = str + "\n  ";
+
+//                str = str + "  dayPart: " + dp + " intterval: " + this.getInterval(wd.getIndex() - 1, dp.getIndex() - 1) + "\n";
             }
             str = str + "\n";
         }
@@ -66,9 +83,14 @@ public class Timetable {
         return str + "}";
     }
 
-//    public Timetable getTimetable(){
-//        
-//    }
+    private String makeString(){
+        String str = "";
+        
+        
+        
+        return str;
+    }
+    
     /**
      * @return the weekdays
      */

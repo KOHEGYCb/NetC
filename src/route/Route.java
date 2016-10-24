@@ -1,7 +1,6 @@
 package route;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ListIterator;
@@ -23,13 +22,11 @@ public class Route {
     private Station B;
     private int typeRoad;
     private int id;
-//    private Transport[] transport;
     private List<Transport> transport = new ArrayList<Transport>();
 
     public Route() {
         ArrStations arrStations = new ArrStations();
         initComp(arrStations);
-//        transport.add(new Bus());
     }
 
     public Route(ArrStations arr) {

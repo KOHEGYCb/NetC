@@ -43,7 +43,7 @@ public class ArrStations implements Serializable {
     private Object deser() {
         Object obj = null;
         try {
-            FileInputStream fis = new FileInputStream("stations.t");
+            FileInputStream fis = new FileInputStream("source/stations.t");
             ObjectInputStream ois = new ObjectInputStream(fis);
             obj = ois.readObject();
             fis.close();

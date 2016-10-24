@@ -12,6 +12,8 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
+import timetable.Timetable;
+import timetable.Weekdays;
 import route.ArrStations;
 import route.Route;
 
@@ -29,6 +31,7 @@ public class NetCracker {
      */
     public static void main(String[] args) {
         loopMain();
+//        System.out.p0rintln(new Timetable().toString());
         arrStations.ser();
     }
 
@@ -67,7 +70,7 @@ public class NetCracker {
             }
             switch (k) {
                 case 1:
-                    if (arrStations.getStations().size() < 2){
+                    if (arrStations.getStations().size() < 2) {
                         System.out.println("Not enough Stations");
                         break;
                     }
@@ -117,7 +120,7 @@ public class NetCracker {
         }
         loopRouteWork(id);
     }
-    
+
     private static void loopTransport(int id) {
         if (id == -1) {
             return;
@@ -138,6 +141,9 @@ public class NetCracker {
                     break;
                 case 3:
                     routes.get(id).writeTransport();
+                    break;
+                case 4:
+                    System.out.println(new Timetable());
                     break;
                 default:
                     System.out.println("Wrong input");
@@ -162,7 +168,7 @@ public class NetCracker {
                     arrStations.addStation();
                     break;
                 case 2:
-                    if (arrStations.getStations().size() == 0){
+                    if (arrStations.getStations().size() == 0) {
                         System.out.println("No Station");
                         break;
                     }
@@ -214,6 +220,7 @@ public class NetCracker {
                 + "1) Add Transport\n"
                 + "2) Remuve Transport\n"
                 + "3) Write Transport\n"
+                + "4) Write Timetable\n"
                 + "0) Back\n*****\n"
                 + "Write point: ");
     }
