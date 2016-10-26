@@ -41,5 +41,26 @@ public enum DayPart {
     public int getIndex() {
         return index;
     }
+
+    /**
+     * @param index the index to set
+     */
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    /**
+     * @param start the start to set
+     */
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    /**
+     * @param stop the stop to set
+     */
+    public void setStop(int stop) {
+        this.stop = stop;
+    }
    
 }

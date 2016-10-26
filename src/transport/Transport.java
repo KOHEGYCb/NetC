@@ -9,6 +9,20 @@ import timetable.Timetable;
 public abstract class Transport{
     
     private static int amount = 0;
+
+    /**
+     * @return the amount
+     */
+    public static int getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param aAmount the amount to set
+     */
+    public static void setAmount(int aAmount) {
+        amount = aAmount;
+    }
     private int id;
     private Timetable timetable; 
     private int number;

@@ -14,6 +14,13 @@ public class Tram extends Transport{
     public static int getAmount() {
         return amount;
     }
+
+    /**
+     * @param aAmount the amount to set
+     */
+    public static void setAmount(int aAmount) {
+        amount = aAmount;
+    }
     
     public Tram(){
         super(amount);

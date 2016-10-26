@@ -8,6 +8,13 @@ public class Bus extends Transport{
 
     private static int amount = 0;
 
+    /**
+     * @param aAmount the amount to set
+     */
+    public static void setAmount(int aAmount) {
+        amount = aAmount;
+    }
+
     public Bus(){
         super(amount);
         setType(0);
