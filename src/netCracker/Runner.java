@@ -7,6 +7,8 @@ Tрамвай. Транспортные средства должны двига
  */
 package netCracker;
 
+import netCracker.utils.Menu;
+
 /**
  *
  * @author Dmitry

@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/transport/Bus.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/transport/Tram.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/route/Station.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/route/Route.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/timetable/Weekdays.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/netCracker/Runner.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/timetable/Timetable.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/timetable/DayPart.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/transport/Trolleybus.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/transport/Transport.java</file>
-            <file>file:/C:/Users/oymer/Downloads/NetC-master/NetC-master/src/route/ArrStations.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/beans/timetable/Timetable.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/Runner.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/enums/DayPart.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/utils/Menu.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/beans/route/Route.java</file>
         </group>
     </open-files>
 </project-private>
