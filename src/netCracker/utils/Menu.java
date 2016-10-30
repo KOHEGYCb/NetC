@@ -14,20 +14,20 @@ import netCracker.beans.timetable.Timetable;
  * @author Dmitry
  */
 public class Menu {
-    
+
     private List<Station> stations = (List<Station>) new ArrStations().deser();
     private List<Route> routes = new ArrayList<Route>();
-    
+
     /**
-     * 
+     *
      */
-    public Menu(){
+    public Menu() {
         loopMain();
         new ArrStations().ser(stations);
     }
-    
+
     /**
-     * 
+     *
      */
     private void loopMain() {
         writeMenu();
@@ -53,9 +53,9 @@ public class Menu {
         }
         loopMain();
     }
-    
+
     /**
-     * 
+     *
      */
     private void loopRoute() {
         writeRouteMenu();
@@ -93,8 +93,8 @@ public class Menu {
     }
 
     /**
-     * 
-     * @param id 
+     *
+     * @param id
      */
     private void loopRouteWork(int id) {
         if (id == -1) {
@@ -125,8 +125,8 @@ public class Menu {
     }
 
     /**
-     * 
-     * @param id 
+     *
+     * @param id
      */
     private void loopTransport(int id) {
         if (id == -1) {
@@ -142,17 +142,28 @@ public class Menu {
             switch (k) {
                 case 1:
                     getRoutes().get(id).addTransport();
-                    for(int i = 0; i < getRoutes().get(id).getTransport().size(); i++)
+                    for (int i = 0; i < getRoutes().get(id).getTransport().size(); i++) {
                         System.out.println(getRoutes().get(id).getTransport().get(i).writeShort());
+                    }
                     break;
                 case 2:
+                    if (getRoutes().get(id).getTransport().isEmpty()){
+                        System.out.println("No transport");
+                        break;
+                    }
                     getRoutes().get(id).remuveTransport();
-                    for(int i = 0; i < getRoutes().get(id).getTransport().size(); i++)
-                        System.out.println(getRoutes().get(id).getTransport().get(i).writeShort());                    break;
+                    for (int i = 0; i < getRoutes().get(id).getTransport().size(); i++) {
+                        System.out.println(getRoutes().get(id).getTransport().get(i).writeShort());
+                    }
+                    break;
                 case 3:
                     getRoutes().get(id).writeTransport();
                     break;
                 case 4:
+                    if (getRoutes().get(id).getTransport().isEmpty()) {
+                        System.out.println("No transport");
+                        break;
+                    }
                     System.out.println(new Timetable());
                     break;
                 default:
@@ -166,7 +177,7 @@ public class Menu {
     }
 
     /**
-     * 
+     *
      */
     private void loopStation() {
         writeStationMenu();
@@ -178,22 +189,26 @@ public class Menu {
             }
             switch (k) {
                 case 1:
+                    System.out.println(new ArrStations().writeShort(stations));
                     setStations(new ArrStations().addStation(getStations()));
-                    System.out.println(new ArrStations().toString(getStations()));
+                    System.out.println(new ArrStations().writeShort(stations));
                     break;
                 case 2:
                     if (getStations().isEmpty()) {
                         System.out.println("No Station");
                         break;
                     }
+                    System.out.println(new ArrStations().writeShort(stations));
                     setStations(new ArrStations().remuveStation(getStations()));
-                    System.out.println(new ArrStations().toString(getStations()));
+                    System.out.println(new ArrStations().writeShort(stations));
                     break;
                 case 3:
                     System.out.println(new ArrStations().toString(getStations()));
                     break;
                 case 4:
+                    System.out.println(new ArrStations().writeShort(stations));
                     setStations(new ArrStations().renameStation(getStations()));
+                    System.out.println(new ArrStations().writeShort(stations));
                     break;
                 default:
                     System.out.println("Wrong input");
@@ -206,7 +221,7 @@ public class Menu {
     }
 
     /**
-     * 
+     *
      */
     private void writeMenu() {
         System.out.print("***** Main *****\n"
@@ -215,9 +230,9 @@ public class Menu {
                 + "0) Exit\n****************\n"
                 + "Write point: ");
     }
-    
+
     /**
-     * 
+     *
      */
     private void writeRouteMenu() {
         System.out.print("***** Work with Routes *****\n"
@@ -229,44 +244,44 @@ public class Menu {
     }
 
     /**
-     * 
+     *
      */
     private void writeRouteWorkMenu() {
         System.out.print("***** Work with Route *****\n"
-                + "1) Write Route\n"
+                + "1) Print Route\n"
                 + "2) Work with Transport\n"
                 + "0) Back\n***************************\n"
                 + "Write point: ");
     }
 
     /**
-     * 
+     *
      */
     private void writeTransportMenu() {
         System.out.print("***** Work with Transport *****\n"
                 + "1) Add Transport\n"
                 + "2) Remuve Transport\n"
-                + "3) Write Transport\n"
-                + "4) Write Timetable\n"
+                + "3) Print Transport\n"
+                + "4) Print Timetable\n"
                 + "0) Back\n*******************************\n"
                 + "Write point: ");
     }
 
     /**
-     * 
+     *
      */
     private void writeStationMenu() {
         System.out.print("***** Work whis Station *****\n"
                 + "1) Add Station\n"
                 + "2) Remuve Station\n"
-                + "3) Write Stations\n"
+                + "3) Print Stations\n"
                 + "4) Rename Station\n"
                 + "0) Back\n*****************************\n"
                 + "Write point: ");
     }
 
     /**
-     * 
+     *
      */
     private void remuveRoute() {
         int id = chooseRouteId();
@@ -283,12 +298,13 @@ public class Menu {
     }
 
     /**
-     * 
+     *
      */
     private void writeRoute() {
         System.out.println("*****\nRoute List:");
-        if (routes.isEmpty())
+        if (routes.isEmpty()) {
             System.out.println("  No Route");
+        }
         ListIterator<Route> listIterator = getRoutes().listIterator();
         while (listIterator.hasNext()) {
             System.out.println("  " + listIterator.next());
@@ -296,8 +312,8 @@ public class Menu {
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     private int chooseRouteId() {
         if (getRoutes().isEmpty()) {

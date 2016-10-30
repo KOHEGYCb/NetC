@@ -5,9 +5,13 @@
         <group>
             <file>file:/D:/Documents/Java/NetCracker/src/netCracker/beans/timetable/Timetable.java</file>
             <file>file:/D:/Documents/Java/NetCracker/src/netCracker/Runner.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/utils/IOTimetable.java</file>
             <file>file:/D:/Documents/Java/NetCracker/src/netCracker/enums/DayPart.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/utils/ArrStations.java</file>
             <file>file:/D:/Documents/Java/NetCracker/src/netCracker/utils/Menu.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/enums/Weekdays.java</file>
             <file>file:/D:/Documents/Java/NetCracker/src/netCracker/beans/route/Route.java</file>
+            <file>file:/D:/Documents/Java/NetCracker/src/netCracker/files/timetable.t</file>
         </group>
     </open-files>
 </project-private>

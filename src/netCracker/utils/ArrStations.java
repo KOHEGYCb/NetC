@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ListIterator;
@@ -17,12 +18,11 @@ import netCracker.beans.route.Station;
  *
  * @author Dmitry
  */
-public class ArrStations implements Serializable {
+public class ArrStations implements Serializable{
 
     /**
      * @return the stations
      */
-
     public Object deser() {
         Object obj = null;
         try {
@@ -33,7 +33,7 @@ public class ArrStations implements Serializable {
             ois.close();
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
-            System.exit(0);
+            return new ArrayList<Station>();
         } catch (IOException ex) {
             System.out.println("Error read/write");
             System.exit(1);
@@ -45,8 +45,8 @@ public class ArrStations implements Serializable {
     }
 
     /**
-     * 
-     * @param stations 
+     *
+     * @param stations
      */
     public void ser(List<Station> stations) {
         try {
@@ -70,7 +70,11 @@ public class ArrStations implements Serializable {
     public List<Station> addStation(List<Station> stations) {
         System.out.print("*****\n"
                 + "Write name: ");
-        String str = new Scanner(System.in).next();
+        String str = new StringWrite().inputString();
+        if (str == null) {
+            System.out.println("Station not created");
+            return stations;
+        }
         stations.add(new Station(stations.size() + 1, str));
         System.out.println("Station created\n*****");
         return stations;
@@ -84,8 +88,9 @@ public class ArrStations implements Serializable {
     public String toString(List<Station> stations) {
         String str = "List Stations: \n";
         ListIterator<Station> listIterator = stations.listIterator();
-        while(listIterator.hasNext())
-            str = str + "  " + listIterator.next();
+        while (listIterator.hasNext()) {
+            str = str + "  " + listIterator.next().writeAll();
+        }
         return str;
     }
 
@@ -133,24 +138,38 @@ public class ArrStations implements Serializable {
             int id = new Scanner(System.in).nextInt();
             boolean find = false;
             int i;
-            for (i = 0; i < stations.size(); i++) 
-                if (stations.get(i).getId() == id){ 
+            for (i = 0; i < stations.size(); i++) {
+                if (stations.get(i).getId() == id) {
                     find = true;
                     break;
                 }
+            }
             if (!find) {
-                System.out.println("Id not found\nStation not remuved\n*****");
+                System.out.println("Id not found\nStation not reamed\n*****");
                 return stations;
             }
             System.out.print("Station found\nWrite new name: ");
-            String name = new Scanner(System.in).next();
-            stations.get(i).setName(name);
+            String str = new StringWrite().inputString();
+            if (str == null) {
+                System.out.println("Station not created");
+                return stations;
+            }
+            stations.get(i).setName(str);
         } catch (InputMismatchException ime) {
-            System.out.println("Not integer\nStation not remuved\n*****");
+            System.out.println("Not integer\nStation not renamed\n*****");
             return stations;
         }
         System.out.println("Station renamed\n*****");
         return stations;
+    }
+
+    public String writeShort(List<Station> stations) {
+        String str = "List Stations: \n";
+        ListIterator<Station> listIterator = stations.listIterator();
+        while (listIterator.hasNext()) {
+            str = str + "  " + listIterator.next().writeShort();
+        }
+        return str;
     }
 
 }

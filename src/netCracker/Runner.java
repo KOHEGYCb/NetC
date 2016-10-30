@@ -1,13 +1,17 @@
 /*
  
-Система городской транспорт. На МАРШРУТ назначается Автобус, Tроллейбус или 
+Система городско1спорт. На МАРШРУТ назначается Автобус, Tроллейбус или 
 Tрамвай. Транспортные средства должны двигаться с определенным для каждого 
 маршрута интервалом или рассписанием.
 
  */
 package netCracker;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import netCracker.exeptions.EmptyLineExeption;
 import netCracker.utils.Menu;
+import netCracker.utils.StringWrite;
 
 /**
  *
@@ -20,5 +24,6 @@ public class Runner {
      */
     public static void main(String[] args) {
         new Menu();
+
     }
 }

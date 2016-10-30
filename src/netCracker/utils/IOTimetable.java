@@ -31,6 +31,7 @@ public class IOTimetable {
 
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
+            return "";
         } catch (IOException ex) {
             System.out.println("Input error");
         }

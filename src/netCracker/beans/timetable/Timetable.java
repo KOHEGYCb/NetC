@@ -47,13 +47,18 @@ public class Timetable {
     public void outputFile(){
         new IOTimetable().outputTimetable(toString());
     }
+    
     /**
      *
      * @return
      */
     @Override
     public String toString() {
-        return new IOTimetable().inputTimetable();
+        String str = new IOTimetable().inputTimetable();
+        if ("".equals(str))
+            new IOTimetable().outputTimetable(makeString());
+        str = new IOTimetable().inputTimetable();
+        return str;
     }
 
     /**
@@ -75,8 +80,30 @@ public class Timetable {
      * @return
      */
     private String makeString() {
-        String str = "";
-
+        String str = "Timetable {\n";
+        for(Weekdays weekdays : Weekdays.values()){
+            str = str + "Weekday: " + weekdays + "\n";
+            for(DayPart dayPart : DayPart.values()){
+                int hour = dayPart.getStart();
+                int minute = 0;
+                int endHour = dayPart.getStop();
+                int interval = this.interval[weekdays.getIndex()-1][dayPart.getIndex()-1];
+                str = str + "  ";
+                while (hour != endHour){
+                    if(minute >= 60){
+                        minute = minute - 60;
+                        hour++;
+                    }
+                    if (hour >= 24){
+                        hour = hour - 24;
+                    }
+                    str = str + hour + ":" + minute + "  ";
+//                    System.out.println(hour + ":" + minute + "||" + interval);
+                    minute = minute + interval;
+                }
+                str = str + "\n";
+            }
+        }
         return str;
     }
 

@@ -2,12 +2,13 @@ package netCracker.beans.route;
 
 import java.io.Serializable;
 import java.util.Objects;
+import netCracker.interfaces.Writer;
 
 /**
  *
  * @author Dmitry
  */
-public class Station implements Serializable{
+public class Station implements Serializable, Writer{
     
     private int id;
     private String name;
@@ -130,6 +131,16 @@ public class Station implements Serializable{
      */
     public void setTypeRoad(int typeRoad) {
         this.typeRoad = typeRoad;
+    }
+
+    @Override
+    public String writeAll() {
+        return toString();
+    }
+
+    @Override
+    public String writeShort() {
+        return "Station { id: " + id + "; name: " + name + "  }\n";
     }
     
     

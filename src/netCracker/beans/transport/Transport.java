@@ -1,13 +1,13 @@
 package netCracker.beans.transport;
 
 import netCracker.beans.timetable.Timetable;
-import netCracker.interfaces.WriteOnDisplay;
+import netCracker.interfaces.Writer;
 
 /**
  *
  * @author Dmitry
  */
-public abstract class Transport implements WriteOnDisplay{
+public abstract class Transport implements Writer{
     
     private static int amount = 0;
 
